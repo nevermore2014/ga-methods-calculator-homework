@@ -41,6 +41,7 @@ end
 
 def sine(num1)
 	j = 1
+	num1 = num1*2*Math::PI/360
 	k = num1
 	while j<=20
 		num1 *= (-1)*num1*num1/(2*j)/(2*j+1)
@@ -52,6 +53,7 @@ end
 
 def cosine(num1)
 	j = 2
+	num1 = num1*2*Math::PI/360
 	num1 = (-1)*num1*num1/2
 	k = num1
 	while j<=20
