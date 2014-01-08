@@ -11,12 +11,37 @@ def plus(num1, num2)
 	return num1*num2
 end
 
-def divide (num1, num2)
+def divide(num1, num2)
 	return num1/num2
 end
 
+def exponents(num1, num2)
+	return num1**num2
+end
+
+def square(num1)
+	return num1*num1
+end
+
+def cube(num1)
+	return num1*num1*num1
+end
+
+def square_root(num1)
+	return Math.sqrt(num1)
+end
+
+# def sine(num1)
+# 	return num1 +(-1)*num1*num1/num1/2/(num)
+
+# def cosine(num1)
+# 	if num1<1
+# 		return 1
+# 	end
+# 	return 2*cosine(num1/2)*cosine(num1/2)-1
+# end
+
 def operation
-	puts "asdfsadfasdfasfd"
 	return gets.chomp.to_s
 end
 
@@ -24,32 +49,43 @@ def yield_output(output)
 	puts output
 end
 
+puts "Directly input the number and the operation to use the calculator!"
+num1 = gets.chomp.to_i
 text = operation
 
 if text == "+"
-	num1 = gets.chomp.to_f
-	puts "+"
 	num2 = gets.chomp.to_f
 	add_result = add(num1, num2)
 	yield_output add_result
 elsif text == "-"
-	num1 = gets.chomp.to_f
-	puts "-"
 	num2 = gets.chomp.to_f
 	minus_result = minus(num1, num2)
 	yield_output minus_result
 elsif text == "*"
-	num1 = gets.chomp.to_f
-	puts "*"
 	num2 = gets.chomp.to_f
 	plus_result = plus(num1, num2)
 	yield_output plus_result
-else
-	num1 = gets.chomp.to_f
-	puts "/"
+elsif text == "/"
 	num2 = gets.chomp.to_f
 	divide_result = divide(num1, num2)
 	yield_output divide_result
+elsif text == "^"
+	num2 = gets.chomp.to_f
+	exponents_result = exponents(num1, num2)
+	yield_output exponents_result
+elsif text == "^2"
+	square_result = square(num1)
+	yield_output square_result
+elsif text == "^3"
+	cube_result = cube(num1)
+	yield_output cube_result
+elsif text == "^0.5"
+	square_root_result = square_root(num1)
+	yield_output square_root_result
+elsif text == "cosine"
+	cosine_result = cosine(num1)
+	yield_output cosine_result
 end
+
 
 
