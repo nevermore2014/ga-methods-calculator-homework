@@ -31,15 +31,36 @@ def square_root(num1)
 	return Math.sqrt(num1)
 end
 
-# def sine(num1)
-# 	return num1 +(-1)*num1*num1/num1/2/(num)
+def factorial(num1)
+	if num1<=1
+		return 1
+	else
+		return factorial(num-1)
+	end
+end
 
-# def cosine(num1)
-# 	if num1<1
-# 		return 1
-# 	end
-# 	return 2*cosine(num1/2)*cosine(num1/2)-1
-# end
+def sine(num1)
+	j = 1
+	k = num1
+	while j<=20
+		num1 *= (-1)*num1*num1/(2*j)/(2*j+1)
+		k += num1
+		j += 1
+	end
+	return k
+end
+
+def cosine(num1)
+	j = 2
+	num1 = (-1)*num1*num1/2
+	k = num1
+	while j<=20
+		num1 *= (-1)*num1*num1/(2*j)/(2*j-1)
+		k += num1
+		j += 1
+	end
+	return 1+k
+end
 
 def operation
 	return gets.chomp.to_s
@@ -50,7 +71,7 @@ def yield_output(output)
 end
 
 puts "Directly input the number and the operation to use the calculator!"
-num1 = gets.chomp.to_i
+num1 = gets.chomp.to_f
 text = operation
 
 if text == "+"
@@ -82,9 +103,16 @@ elsif text == "^3"
 elsif text == "^0.5"
 	square_root_result = square_root(num1)
 	yield_output square_root_result
+elsif text == "sine"
+	sine_result = sine(num1)
+	yield_output sine_result
 elsif text == "cosine"
 	cosine_result = cosine(num1)
 	yield_output cosine_result
+elsif text == "tangine"
+	sine_result = sine(num1)
+	cosine_result = cosine(num1)
+	yield_output (sine_result/cosine_result)
 end
 
 
