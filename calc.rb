@@ -31,19 +31,11 @@ def square_root(num1)
 	return Math.sqrt(num1)
 end
 
-def factorial(num1)
-	if num1<=1
-		return 1
-	else
-		return factorial(num-1)
-	end
-end
-
 def sine(num1)
 	j = 1
-	num1 = num1*2*Math::PI/360
+	num1 = num1 * Math::PI/180
 	k = num1
-	while j<=20
+	while j<=100
 		num1 *= (-1)*num1*num1/(2*j)/(2*j+1)
 		k += num1
 		j += 1
@@ -53,10 +45,10 @@ end
 
 def cosine(num1)
 	j = 2
-	num1 = num1*2*Math::PI/360
+	num1 = num1 * Math::PI/180
 	num1 = (-1)*num1*num1/2
 	k = num1
-	while j<=20
+	while j<=100
 		num1 *= (-1)*num1*num1/(2*j)/(2*j-1)
 		k += num1
 		j += 1
